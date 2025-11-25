@@ -71,7 +71,7 @@ def main() -> None:
     media_dir.mkdir(parents=True, exist_ok=True)
 
     tsv_path = out_dir / "anki_cards.tsv"
-    init_tsv(tsv_path)
+    # init_tsv(tsv_path)
 
     # Default tags from config + extra tags from CLI.
     cfg_anki = cfg.get("anki", {})

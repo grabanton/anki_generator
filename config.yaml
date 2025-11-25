@@ -1,8 +1,8 @@
 # config.yaml
 
 openrouter:
-  text_model: google/gemini-2.5-pro
-  image_model: google/gemini-2.5-flash-image-preview
+  text_model: openai/gpt-4o
+  image_model: google/gemini-3-pro-image-preview
 
 openai_tts:
   enabled: true          # if false, no TTS at all
@@ -43,8 +43,7 @@ image:
 
 anki:
   default_tags:
-    - en::vocab
-    - autogen::anki_gen
+    - anki_gen
 
 audio:
   silence_filename: silence.mp3   # this file you place into media folder manually
