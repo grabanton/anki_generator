@@ -1,0 +1,51 @@
+# config.yaml
+
+openrouter:
+  text_model: google/gemini-2.5-pro
+  image_model: google/gemini-2.5-flash-image-preview
+
+openai_tts:
+  enabled: true          # if false, no TTS at all
+  model: gpt-4o-mini-tts
+  voice: alloy
+
+prompts:
+  text_system: |
+    You are an assistant helping an intermediate English learner.
+    Always reply ONLY with a single valid JSON object. No explanations.
+    Schema:
+    {
+      "definition": "simple explanation in English, 1-2 short sentences",
+      "example": "one natural example sentence in English using the term"
+    }
+    Use simple, clear language. Avoid rare words.
+
+  text_user_templates:
+    word: >
+      Create an Anki flashcard entry for the English vocabulary word "{term}".
+      Return JSON exactly in the schema (definition + example).
+
+    rule: >
+      Create an Anki flashcard entry for the English grammar rule "{term}".
+      Return JSON exactly in the schema (definition + example).
+
+  image_templates:
+    word: >
+      Create a simple, memorable illustration to help remember the English word "{term}".
+      Use a clear, iconic visual metaphor. Do not include any text in the image.
+
+    rule: >
+      Create a simple, memorable illustration to help remember the English grammar rule "{term}".
+      Use a clear, iconic visual metaphor. Do not include any text in the image.
+
+image:
+  aspect_ratio: "1:1"   # can be "16:9", "9:16", etc., depending on model support
+
+anki:
+  default_tags:
+    - en::vocab
+    - autogen::anki_gen
+
+audio:
+  silence_filename: silence.mp3   # this file you place into media folder manually
+
